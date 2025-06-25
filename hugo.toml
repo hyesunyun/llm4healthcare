@@ -1,3 +1,102 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://hyesunyun.github.io/llm4healthcare'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'LLMs for Healthcare: A Complete Learning Journey'
+theme = 'typo'
+
+[taxonomies]
+tag = 'tags'
+
+[params]
+# Home meta description
+description = "A tech-oriented blog curated by Hye Sun Yun."
+
+# Appearance settings
+theme = 'auto'
+colorPalette = 'catpuccin'
+hideHeader = false
+
+# Intro on main page, content in markdown
+homeIntroTitle = 'Hi!'
+homeIntroContent = """
+This comprehensive 4-part blog series introduces the fascinating intersection of Large Language Models (LLMs) and healthcare applications. 
+Through hands-on projects, ethical considerations, and real-world examples, you will gain practical experience while understanding the complexities of AI in healthcare in a self-paced way.
+
+**Prerequisites**: Basic programming knowledge (Python preferred), curiosity about AI and healthcare \\
+**Duration**: 4 weeks (approximagely one blog post per week but can go through it faster) \\
+**Tools Needed**: Python, HuggingFace Transformers, OpenAI API, Jupyter notebooks
+
+Feel free to read more [about the learning experience](/about) or dive right in by going through the [blog posts](/posts).
+"""
+
+singleDateFormat = '2 January 2006'
+
+# Collection to display on home
+# homeCollectionTitle = 'Posts'
+# homeCollection = 'posts'
+
+# Lists parameters
+paginationSize = 100
+listSummaries = true
+listDateFormat = '2 January 2006'
+
+# Footer
+showFooter = true
+
+# Breadcrumbs
+[params.breadcrumbs]
+enabled = true
+showCurrentPage = true
+home = "~"
+
+# Social icons
+
+[[params.social]]
+name = "github"
+url = "https://github.com/hyesunyun"
+
+# Main menu pages
+# [[params.menu]]
+# name = "home"
+# url = "/"
+
+[[params.menu]]
+name = "posts"
+url = "/posts"
+
+[[params.menu]]
+name = "about"
+url = "/about"
+
+[[params.menu]]
+name = "library"
+url = "/library"
+
+# Syntax highlight on code blocks
+[markup]
+[markup.highlight]
+style = 'algol'
+
+# Deploy settings
+
+[[deployment.matchers]]
+pattern = "^.+\\.(js|css|svg|ttf|woff2)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = true
+
+[[deployment.matchers]]
+pattern = "^.+\\.(png|jpg|gif|webp)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = false
+
+# Giscus comments
+[params.giscus]
+enable = false
+repo = "user/repo"
+repoid = "repoId"
+category = "General"
+categoryid = "categoryId"
+mapping = "pathname"
+theme = "preferred_color_scheme"
+
+[params.umami]
+enable = false
