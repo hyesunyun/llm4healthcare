@@ -1,4 +1,4 @@
-baseURL = 'https://hyesunyun.github.io/llm4healthcare'
+baseURL = 'https://hyesunyun.github.io/'
 languageCode = 'en-us'
 title = 'LLMs for Healthcare: A Complete Learning Journey'
 theme = 'typo'
