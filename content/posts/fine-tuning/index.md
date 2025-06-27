@@ -48,7 +48,7 @@ Briefly share other types of data extraction tasks that are commmonly done in he
 - Identifying contradictory information across papers
 - Temporal information extraction (treatment timelines)
 
-## Key Considerations for Evaluation and Deployment**
+## Key Considerations for Evaluation and Deployment
 
 - Evaluation metrics/framework
 - Error analysis in healthcare contexts

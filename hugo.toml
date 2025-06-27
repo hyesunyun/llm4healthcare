@@ -1,4 +1,4 @@
-baseURL = 'https://hyesunyun.github.io/'
+baseURL = 'https://hyesunyun.github.io/llm4healthcare/'
 languageCode = 'en-us'
 title = 'LLMs for Healthcare: A Complete Learning Journey'
 theme = 'typo'
@@ -57,19 +57,19 @@ url = "https://github.com/hyesunyun"
 # Main menu pages
 # [[params.menu]]
 # name = "home"
-# url = "/"
+# url = "/llm4healthcare"
 
 [[params.menu]]
 name = "posts"
-url = "/posts"
+url = "/llm4healthcare/posts"
 
 [[params.menu]]
 name = "about"
-url = "/about"
+url = "/llm4healthcare/about"
 
 [[params.menu]]
 name = "library"
-url = "/library"
+url = "/llm4healthcare/library"
 
 # Syntax highlight on code blocks
 [markup]
