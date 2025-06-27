@@ -10,6 +10,7 @@ autonumber: true
 math: true
 tags: ["prompting", "code"]
 showTags: false
+hideBackToTop: false
 ---
 
 # Your First Healthcare AI Assistant: Hands-On Prompting

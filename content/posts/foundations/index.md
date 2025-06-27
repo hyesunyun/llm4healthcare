@@ -10,6 +10,7 @@ autonumber: true
 math: true
 tags: ["foundations", "basics"]
 showTags: false
+hideBackToTop: false
 ---
 
 # LLMs Meet Healthcare: Understanding the Fundamentals
