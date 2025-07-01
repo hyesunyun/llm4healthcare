@@ -24,54 +24,59 @@ hideBackToTop: false
 
 ## LLM Basics
 
-**Large language models (LLMs)** are language models trained with self-supervised machine learning on a vast amount of text, designed for natural language processing tasks, especially language generation. They are deep neural networks that are millions or billions of gigabytes in size and trained on enormous amounts of text data.
+**Large language models (LLMs)** are language models trained with self-supervised machine learning on a vast amount of text, designed for natural language processing tasks, especially language generation. They are deep neural networks that are millions or billions of gigabytes in size and trained on enormous amounts of text data. LLMs have shown to be very powerful in various natural language tasks including generating summaries, answering questions, or completing text based on a given prompt.
 
-LLMs have shown to be very powerful in various natural language tasks including generating summaries, answering questions, or completing text based on a given prompt.
+#### Tokenization
 
-Example Prompts:\
-`"Please use the following job description and my resume to write a letter."`\
-`"What is the evidence for inhaled bronchodilators for acute chest syndrome in people with sickle cell disease?"`
+The way that computers are able to work with text is pretty simple. As machine learning algorithms process numbers rather than text, the text must be converted to numbers. In the first step, a vocabulary is decided upon, then integer indices are arbitrarily but uniquely assigned to each vocabulary entry, and finally, an embedding is associated to the integer index. For example, the tokenizer used by GPT-3 would split `tokenizer: texts -> series of numerical "tokens"` as 
 
-The LLM will output some text based on the input. You can think of them as models that can complete text.
+![Tokenization](/images/tokenization.png)
 
-**TODO: add autoregressive, n-grams, probabilities, tokenizers**
+#### Inner Workings of LLMs
+
+LLMs predict text one token at a time, where each new word depends on all the previous words in the sequence. At its core, this process is entirely probabilistic: the model calculates probability distributions over its entire vocabulary for what word should come next, then samples from those probabilities.
+
+Every aspect of LLM behavior emerges from these probability calculations. When a model seems "confident" or "uncertain," that is reflected in how concentrated or spread out its probability distributions are. When it generates creative versus factual content, it ss operating in different regions of probability space. Even seemingly deterministic outputs are actually the result of probability sampling - the model might assign 80% probability to one word and 20% to alternatives, but it still has to choose based on those probabilities.
+
+This probabilistic foundation explains both the power and limitations of LLMs. Their ability to generate coherent, contextually appropriate text comes from learning incredibly complex probability patterns across vast amounts of text. But their occasional hallucinations, inconsistencies, and inability to truly "know" facts also stem from this same probabilistic nature. They are essentially very sophisticated probability machines rather than knowledge databases or reasoning engines.
+
+The quality of the outputs from LLMs are sensitive to how prompting is done. Zero-shot prompting involves giving no examples for in-context learning while few-shot prompting involves adding example inputs and outputs to guide the model towards higher quality text outputs. To increase the quality of outputs, developers often further train the models via fine-tuning or instruction-tuning with supervised machine learning to increase the instruction-following abilities of these models.
+
+The recent advances in LLMs were possible with a very famous architecture known as transformers.
 
 ### What Are Transformers?
 
-Transformers are a type of model that excel at processing sequences of data, such as sentences in a text. This archiecture was introduced by Google researchers in 2017 at NeurIPS conference in their landmark paper named ["Attention Is All You Need."](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)[^1] 
+Transformers are a type of model that excel at processing sequences of data, such as sentences in a text. This architecture was introduced by Google researchers in 2017 at NeurIPS conference in their landmark paper named ["Attention Is All You Need."](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)[^1] 
 
-Transformers differ from earlier models like Recurrent Neural Networks (RNNs) or Long Short-Term Memory networks (LSTMs) by processing all elements of the sequence simultaneously, rather than one by one. This parallel processing is enabled by the attention mechanism, which helps the model focus on the most relevant parts of the sequence at each step.
+The attention mechanism is the core innovation that makes transformers so powerful and efficient. Unlike previous architectures such as recurrent neural networks (RNNs) that processed text sequentially, attention allows transformers to directly relate any word in a sequence to any other word, regardless of distance. This happens through a mathematical process where each word creates "queries," "keys," and "values" essentially asking "what should I pay attention to?" and getting weighted responses from every other word in the sequence.
 
-**TODO: a bit more about attention mechanisms?**
+What makes attention revolutionary is that it is computed in parallel rather than step-by-step. Traditional RNNs had to process "The cat sat on the mat" word by word, with information about "cat" potentially degrading by the time they reached "mat." Attention lets the model instantly connect "cat" and "mat" with equal clarity, capturing long-range dependencies that were previously difficult to learn.
 
-Some examples of well-known Transformer-based LLMs are `GPT-4`, `Claude 4 Sonnet`, `Llama`, and `Mistral`. 
+The "self-attention" variant used in transformers is particularly elegant. Each word attends to all words in the same sequence, creating rich contextual representations. When processing "bank," the attention mechanism automatically figures out whether nearby words suggest a financial institution or a river's edge. Multi-head attention runs several of these processes in parallel, allowing the model to simultaneously track different types of relationships (e.g., syntactic, semantic, positional, and more). This parallel, direct-connection approach is what enables transformers to scale effectively and understand complex language patterns that require integrating information across long contexts.
+
+![Visualization of the Attention Mechanism with Example Sentences](/gifs/attention.gif "Visualization of the Attention Mechanism with Example Sentences - [Source](https://medium.com/bir-ba%C5%9Fka-d%C3%BCnya/transformer-modelleri-ve-attention-mekanizmas%C4%B1-392f053a9806)")
+
+Some examples of well-known transformer-based LLMs are `GPT-4`, `Claude 4 Sonnet`, `Llama`, and `Mistral`. 
 
 ### Challenges in NLP for Healthcare
 
-However, these general LLMs mentioned above often lack the specialized knowledge or abilities that are required for health and medical-specific tasks.
+Although general LLMs are powerful in generating texts, they often lack the specialized knowledge or abilities that are required for health and medical-specific tasks.
 
 NLP tasks for healthcare are different from general NLP tasks for the following reasons:
-- Medical jargon
+- Medical jargon and domain specific adaption
 - Requires precision and accuracy
-- High risk setting
+- Ethical, legal, and safety concerns due to high risk setting
 - Requires clinical/healthcare expert input and feedback
+
+Hallucinations (generating inaccurate information) and challenges in evaluating medical LLMs are some of the other challenges listed by the visualization below:
+
+![Medical LLM Challenges](/images/medical_llm_challenges.png "Medical LLM Challenges - [Source](https://github.com/AI-in-Health/MedLLMsPracticalGuide)")
 
 Due to these challenges, researchers and developers have pre-trained or fine-tuned LLMs on biomedical text (clinical notes, medical research articles, etc) to create medical-specific LLMs.
 
-Over the years, there have been numerous biomedical LLMs developed. 
+Over the years, there have been numerous biomedical LLMs developed such as `BioBERT`, `ClinicalBERT`, `MedPaLM2`, and `MEDITRON`. 
 
-![Medical LLM Tree](/images/medical_llm_tree.png)
-
-https://github.com/AI-in-Health/MedLLMsPracticalGuide?tab=readme-ov-file
-
-However, there have been several LLMs fine-tuned on biomedical text that were created. Some well-known examples are `BioBERT`, `ClinicalBERT`, `MedPaLM2`, and `MEDITRON`.
-
-- What are LLMs? (Transformer architecture simplified)
-- How healthcare is different from general NLP tasks
-    - Medical jargon
-    - Requires precision and accuracy
-    - High risk setting
-    - Requires clinical/healthcare expert input and feedback
+![Medical LLM Tree](/images/medical_llm_tree.png "Medical LLM Tree - [Source](https://github.com/AI-in-Health/MedLLMsPracticalGuide)")
 
 ## Healthcare Tasks That LLMs Excel
 
@@ -82,8 +87,10 @@ Examples:
 - Medical literature review and synthesis
 - Patient education material generation
 - Drug interaction checking
-- Symptom assessment (with major caveats)
+- Symptom assessments
 - Medical coding assistance (ICD-10, CPT codes)
+
+![Medical LLM Applications](/images/medical_llm_applications.png "Applications of Medical LLMs - [Source](https://github.com/AI-in-Health/MedLLMsPracticalGuide)")
 
 ## Healthcare Datasets
 
@@ -97,4 +104,4 @@ Examples:
 
 *An exercise where students explore a sample from each dataset type, noting differences in structure, language, and complexity.*
 
-[^1]: You can find more details on Transformers and this paper via blog posts: [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) and [Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/)
+[^1]: You can find more details on Transformers and the paper via these blog posts: [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) and [Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/)
