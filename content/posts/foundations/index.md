@@ -58,6 +58,12 @@ NLP tasks for healthcare are different from general NLP tasks for the following 
 
 Due to these challenges, researchers and developers have pre-trained or fine-tuned LLMs on biomedical text (clinical notes, medical research articles, etc) to create medical-specific LLMs.
 
+Over the years, there have been numerous biomedical LLMs developed. 
+
+![Medical LLM Tree](/images/medical_llm_tree.png)
+
+https://github.com/AI-in-Health/MedLLMsPracticalGuide?tab=readme-ov-file
+
 However, there have been several LLMs fine-tuned on biomedical text that were created  `BioBERT`, ClinicalBERT
 
 - What are LLMs? (Transformer architecture simplified)
