@@ -30,7 +30,6 @@ LLMs have shown to be very powerful in various natural language tasks including 
 
 Example Prompts:\
 `"Please use the following job description and my resume to write a letter."`\
-`"Two American citizens leave the Irish pub sober. Continue the joke, please."`\
 `"What is the evidence for inhaled bronchodilators for acute chest syndrome in people with sickle cell disease?"`
 
 The LLM will output some text based on the input. You can think of them as models that can complete text.
