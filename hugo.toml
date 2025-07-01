@@ -19,13 +19,17 @@ hideHeader = false
 homeIntroTitle = 'Hi!'
 homeIntroContent = """
 This comprehensive 4-part blog series introduces the fascinating intersection of Large Language Models (LLMs) and healthcare applications. 
-Through hands-on projects, ethical considerations, and real-world examples, you will gain practical experience while understanding the complexities of AI in healthcare in a self-paced way.
+Through hands-on programming exercises and real-world examples, you will gain practical experience while understanding the complexities of AI in healthcare in a self-paced way.
+
+Use this blog as an introduction to the topic or as a reference material as you work on designing and building LLM applications for healthcare!
 
 **Prerequisites**: Basic programming knowledge (Python preferred), curiosity about AI and healthcare \\
 **Duration**: 4 weeks (approximagely one blog post per week but can go through it faster) \\
 **Tools Needed**: Python, HuggingFace Transformers, OpenAI API, Jupyter notebooks
 
-Feel free to read more [about the learning experience](/about) or dive right in by going through the [blog posts](/posts).
+Please read more [about the blog and learning experience](/about) before diving into the [blog posts](/posts).
+
+~~ created by HSY
 """
 
 singleDateFormat = '2 January 2006'
@@ -52,7 +56,7 @@ home = "~"
 
 [[params.social]]
 name = "github"
-url = "https://github.com/hyesunyun"
+url = "https://github.com/hyesunyun/llm4healthcare"
 
 # Main menu pages
 # [[params.menu]]
