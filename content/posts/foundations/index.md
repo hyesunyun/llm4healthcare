@@ -64,7 +64,7 @@ Over the years, there have been numerous biomedical LLMs developed.
 
 https://github.com/AI-in-Health/MedLLMsPracticalGuide?tab=readme-ov-file
 
-However, there have been several LLMs fine-tuned on biomedical text that were created  `BioBERT`, ClinicalBERT
+However, there have been several LLMs fine-tuned on biomedical text that were created. Some well-known examples are `BioBERT`, `ClinicalBERT`, `MedPaLM2`, and `MEDITRON`.
 
 - What are LLMs? (Transformer architecture simplified)
 - How healthcare is different from general NLP tasks
