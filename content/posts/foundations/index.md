@@ -15,6 +15,10 @@ hideBackToTop: false
 
 # LLMs Meet Healthcare: Understanding the Fundamentals
 
+There are many things to learn when it comes to LLMs and healthcare! We will focus on the very basics and provide additional information that you can use to dive deeper!
+
+Let's dive right in!
+
 ## Learning Objectives
 
 - Understand what LLMs are and how they work at a high level
@@ -104,7 +108,7 @@ The following lists some of the most common healthcare datasets:
 
 ### Exercise!
 
-*Dive deep into three distinct healthcare natural language processing (NLP) datasets to understand how LLMs tackle different medical challenges*[^2]
+*Dive deep into three distinct healthcare natural language processing (NLP) datasets to understand how they are structured for LLM training or evaluation. Thoroughly understanding the nature of datasets is a key part of being a responsible researcher or developer of healthcare AI and we want you to practice this important analytical skill. Data is a fundamental part of any AI development which cannot be overlooked.*[^2]
 
 By the end of this activity, you will be able to:
 - Identify key structural differences between healthcare AI datasets
@@ -121,7 +125,7 @@ By the end of this activity, you will be able to:
 2. **SUMPUBMED - Biomedical Literature Summarization** \
 **Domain**: Scientific literature processing \
 **Task**: Create concise summaries of PubMed research articles \
-**Link**: [SUMPUBMED Dataset](https://github.com/vgupta123/sumpubmed)
+**Link**: [SUMPUBMED Dataset](https://huggingface.co/datasets/Blaise-g/SumPubmed)
 
 3. **DDI Corpus - Drug-Drug Interaction Extraction** \
 **Domain**: Pharmacology and drug safety \
@@ -132,7 +136,8 @@ By the end of this activity, you will be able to:
 
 **Step 1**: First Impressions (10 minutes)
 
-For each dataset, spend a few minutes exploring and jot down your initial observations
+If you are an LLM researcher for a university lab or a healthcare startup, what are important features and characteristics of a dataset that you should know before using them in your projects?
+For each dataset, spend a few minutes exploring and jot down your initial observations. The links to the dataset are provided above. You are not execpted to download and write code to understand the data.
 
 Quick Analysis Template:
 ```
