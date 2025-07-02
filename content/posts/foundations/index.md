@@ -72,36 +72,137 @@ Hallucinations (generating inaccurate information) and challenges in evaluating 
 
 ![Medical LLM Challenges](/images/medical_llm_challenges.png "Medical LLM Challenges - [Source](https://github.com/AI-in-Health/MedLLMsPracticalGuide)")
 
-Due to these challenges, researchers and developers have pre-trained or fine-tuned LLMs on biomedical text (clinical notes, medical research articles, etc) to create medical-specific LLMs.
+Due to LLMs needing domain adaptation, researchers and developers have pre-trained or fine-tuned LLMs on biomedical text (clinical notes, medical research articles, etc) to create medical-specific LLMs.
 
-Over the years, there have been numerous biomedical LLMs developed such as `BioBERT`, `ClinicalBERT`, `MedPaLM2`, and `MEDITRON`. 
+Over the years, there have been numerous biomedical LLMs developed such as `BioBERT`, `ClinicalBERT`, `MedPaLM2`, and `MEDITRON`. Some LLMs have shown to perform quite well on US Medical License Exam-style MedQA benchmark dataset. `MedPaLM2` has even achieved an [accuracy of 86.5% which is about human expert performance](https://www.nature.com/articles/s41591-024-03423-7). Although medical LLMs performing at expert level on these benchmark tasks is amazing, there is still much room for improvement as benchmark performance do not directly translate to good performance on real-world tasks.
 
 ![Medical LLM Tree](/images/medical_llm_tree.png "Medical LLM Tree - [Source](https://github.com/AI-in-Health/MedLLMsPracticalGuide)")
 
-## Healthcare Tasks That LLMs Excel
+## Healthcare Tasks That LLMs Are Good At
 
 LLMs can provide value in healthcare by increasing quality but decreasing cost to ensure better patient and care team experience. Specifically, LLMs can reduce healthcare's administrative burden. This allows clinicians time to actually do healthcare rather than administrative work.
 
 Examples:
 - Clinical note summarization
 - Medical literature review and synthesis
-- Patient education material generation
+- Patient education material generation in simplified language
 - Drug interaction checking
 - Symptom assessments
-- Medical coding assistance (ICD-10, CPT codes)
+- Medical coding assistance (ICD-10, CPT codes) which is useful for billing
 
 ![Medical LLM Applications](/images/medical_llm_applications.png "Applications of Medical LLMs - [Source](https://github.com/AI-in-Health/MedLLMsPracticalGuide)")
 
 ## Healthcare Datasets
 
-- **MIMIC-III/IV:** ICU patient de-identified data
-- **PubMed:** Medical literature abstracts
-- **Clinical trial data:** ClinicalTrials.gov
-- **Medical imaging datasets:** CheXpert Plus, NIH Chest X-Rays, Cancer Imaging Dataset
-- **Synthetic datasets:** They can be used when real patient data is unavailable or to fill in the missing gap
+To train and evaluate LLMs on healthcare-specific tasks, we need healthcare datasets. Healthcare datasets can come in many forms. Some are for pre-training or fine-tuning while some are for evaluating the performance of the LLMs on healthcare tasks.
 
-### Excercise!
+The following lists some of the most common healthcare datasets:
+- **MIMIC-III/IV:** ICU patient de-identified data [Paper](https://www.nature.com/articles/s41597-022-01899-x) [Dataset](https://physionet.org/content/mimiciv/3.1/)
+- **PubMed:** Medical literature abstracts [Datset](https://pubmed.ncbi.nlm.nih.gov/download/)
+- **Medical imaging datasets:** [ReXrank - Radiology Report Generation](https://github.com/rajpurkarlab/ReXrank)
+- **ADE:** automatic extraction of drug-related adverse effects from medical case reports [Paper](https://www.sciencedirect.com/science/article/pii/S1532046412000615)
 
-*An exercise where students explore a sample from each dataset type, noting differences in structure, language, and complexity.*
+### Exercise!
+
+*Dive deep into three distinct healthcare natural language processing (NLP) datasets to understand how LLMs tackle different medical challenges*[^2]
+
+By the end of this activity, you will be able to:
+- Identify key structural differences between healthcare AI datasets
+- Understand how dataset design influences LLM training approaches
+- Analyze language complexity across different medical specialties
+
+#### 📊 The Three Datasets
+
+1. **ReXrank - Radiology Report Generation** \
+**Domain**: Medical imaging and diagnostic reporting \
+**Task**: Generate radiology reports from chest X-ray images \
+**Link**: [ReXrank Dataset](https://github.com/rajpurkarlab/ReXrank)
+
+2. **SUMPUBMED - Biomedical Literature Summarization** \
+**Domain**: Scientific literature processing \
+**Task**: Create concise summaries of PubMed research articles \
+**Link**: [SUMPUBMED Dataset](https://github.com/vgupta123/sumpubmed)
+
+3. **DDI Corpus - Drug-Drug Interaction Extraction** \
+**Domain**: Pharmacology and drug safety \
+**Task**: Identify and classify drug interactions from text \
+**Link**: [DDI Corpus](https://huggingface.co/datasets/bigbio/ddi_corpus)
+
+#### 🔍 Your Mission: Dataset Detective
+
+**Step 1**: First Impressions (10 minutes)
+
+For each dataset, spend a few minutes exploring and jot down your initial observations
+
+Quick Analysis Template:
+```
+Dataset: [Name]
+First impression: [What strikes you immediately?]
+Text length: [Short sentences, paragraphs, full documents?]
+Vocabulary: [Technical terms, everyday language, specialized jargon?]
+Structure: [Formatted, free-text, structured fields?]
+```
+
+**Step 2**: Deep Dive Analysis (30 minutes)
+
+Complete this detailed comparison table:
+
+| **Aspect** | **ReXrank (Radiology)** | **SUMPUBMED (Literature)** | **DDI Corpus (Drug Interactions)** |
+|------------|-------------------------|----------------------------|-----------------------------------|
+| **Data Source** | Chest X-ray reports from hospitals | PubMed biomedical articles | DrugBank + MedLine abstracts |
+| **Input Format** | ? | ? | ? |
+| **Output Format** | ? | ? | ? |
+| **Text Length** | ? | ? | ? |
+| **Language Style** | ? | ? | ? |
+| **Domain Vocabulary** | ? | ? | ? |
+| **Key Challenges** | ? | ? | ? |
+| **Evaluation Metrics** | ? | ? | ? |
+
+*Helpful Guide to complete the comparison table:*
+
+Find and analyze specific examples from each dataset:
+
+**Medical Terminology Challenge**
+
+- **ReXrank**: Find 3 radiology-specific terms (e.g., "pneumothorax", "cardiomegaly")
+- **SUMPUBMED**: Find 3 research methodology terms (e.g., "randomized controlled trial")
+- **DDI Corpus**: Find 3 pharmacological terms (e.g., "pharmacokinetic", "bioavailability")
+
+**Sentence Structure Analysis**
+
+Compare sentence patterns. The following are just examples of what you may expect:
+- **ReXrank**: *"The lungs are clear without focal consolidation, pneumothorax, or pleural effusion."*
+- **SUMPUBMED**: *"This systematic review examined 15 randomized controlled trials involving 3,247 participants."*
+- **DDI Corpus**: *"Concurrent use of warfarin and aspirin may increase the risk of bleeding complications."*
+
+What do you notice about:
+- Sentence length?
+- Certainty vs. uncertainty language?
+- Active vs. passive voice?
+
+#### 🧠 Critical Thinking Questions
+
+1. Why do you think ReXrank includes both "findings" and "impressions" sections? What's the difference between describing what you see vs. what you conclude?
+
+2. SUMPUBMED articles have different levels of summaries? How does this compare to news article summarization?
+
+3. The DDI Corpus annotates 5 types of interactions (Mechanism, Effect, Advice, Int, Negative). Why not just "interaction" vs "no interaction"? What does this tell us about the complexity of drug safety?
+
+**LLM Training Challenges**
+
+4. Which dataset would be hardest for an LLM to master and why?
+   - Consider: vocabulary complexity, reasoning requirements, safety implications
+
+**Real-World Impact**
+
+5. Rank these applications by potential impact if an AI system made errors:
+   - Missing a drug interaction
+   - Misreading a chest X-ray
+   - Poorly summarizing a research paper
+
+6. What safeguards would you implement for each system before clinical deployment?
+
 
 [^1]: You can find more details on Transformers and the paper via these blog posts: [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) and [Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/)
+
+[^2]: This exercise was created with the assistance of Claude AI.
