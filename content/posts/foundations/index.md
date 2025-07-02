@@ -110,6 +110,8 @@ The following lists some of the most common healthcare datasets:
 
 *Dive deep into three distinct healthcare natural language processing (NLP) datasets to understand how they are structured for LLM training or evaluation. Thoroughly understanding the nature of datasets is a key part of being a responsible researcher or developer of healthcare AI and we want you to practice this important analytical skill. Data is a fundamental part of any AI development which cannot be overlooked.*[^2]
 
+If you are an LLM researcher for a university lab or a healthcare startup, what are important features and characteristics of a dataset that you should know before using them in your projects? Understanding the data is really important since data is never perfect. There can be human errors in data collection and annotation. The data might not necessarily be what you may be looking for. This exercise can provide you with some guidance on what to look out for when investigating a new dataset.
+
 By the end of this activity, you will be able to:
 - Identify key structural differences between healthcare AI datasets
 - Understand how dataset design influences LLM training approaches
@@ -136,7 +138,6 @@ By the end of this activity, you will be able to:
 
 **Step 1**: First Impressions (10 minutes)
 
-If you are an LLM researcher for a university lab or a healthcare startup, what are important features and characteristics of a dataset that you should know before using them in your projects?
 For each dataset, spend a few minutes exploring and jot down your initial observations. The links to the dataset are provided above. You are not execpted to download and write code to understand the data.
 
 Quick Analysis Template:
